@@ -62,7 +62,7 @@ const Signup = () => {
             placeholder="Enter Firstname"
             onChange={formik.handleChange}
             value={formik.values.firstName}
-            className="border"
+            className="w-full"
             required={true}
             error={formik.touched.firstName && formik.errors.firstName}
           />
@@ -72,7 +72,7 @@ const Signup = () => {
             placeholder="Enter Lastname"
             onChange={formik.handleChange}
             value={formik.values.lastName}
-            className="border"
+            className="w-full"
             required={true}
             error={formik.touched.lastName && formik.errors.lastName}
           />
@@ -82,7 +82,7 @@ const Signup = () => {
             placeholder="Enter Email"
             onChange={formik.handleChange}
             value={formik.values.email}
-            className="border"
+            className="w-full"
             required={true}
             error={formik.touched.email && formik.errors.email}
           />
@@ -92,7 +92,7 @@ const Signup = () => {
             placeholder="Enter Password"
             onChange={formik.handleChange}
             value={formik.values.password}
-            className="border"
+            className="w-full"
             required={true}
             error={formik.touched.password && formik.errors.password}
           />

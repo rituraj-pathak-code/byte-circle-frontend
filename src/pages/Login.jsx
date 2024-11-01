@@ -57,7 +57,7 @@ const Login = () => {
             placeholder="Enter Email"
             onChange={formik.handleChange}
             value={formik.values.email}
-            className="border"
+            className="w-full"
             required={true}
             error={formik.touched.email && formik.errors.email}
           />
@@ -67,7 +67,7 @@ const Login = () => {
             placeholder="Enter Password"
             onChange={formik.handleChange}
             value={formik.values.password}
-            className="border"
+            className="w-full"
             required={true}
             error={formik.touched.password && formik.errors.password}
           />

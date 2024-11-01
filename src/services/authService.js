@@ -31,3 +31,20 @@ export const loginRequest = async (data) => {
     return err;
   }
 };
+
+export const logoutRequest = async () => {
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  try {
+    const res = await axios.post(
+      config.BASE_URL + config.LOGOUT,
+      headers
+    );
+    return res;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+

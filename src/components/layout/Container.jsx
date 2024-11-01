@@ -31,7 +31,7 @@ const Container = () => {
   }
   return (
     <div className="flex overflow-y-hidden">
-      <div className="w-[13%] bg-gray-200 p-4 border-r border-gray-300 shadow">
+      <div className="w-[18%] bg-gray-200 p-4 border-r border-gray-300 shadow">
         <Sidebar />
       </div>
 
@@ -39,7 +39,7 @@ const Container = () => {
         <div className="bg-gray-200 p-4 border-b border-gray-300 shadow-sm">
           <Navbar />
         </div>
-        <div className="flex-1 flex p-8">
+        <div className="flex-1 flex p-8 bg-gray-50">
           <div className="flex-1 h-[84vh] overflow-y-auto">
             <Outlet />
           </div>
