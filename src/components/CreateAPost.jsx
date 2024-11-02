@@ -10,7 +10,7 @@ const CreateAPost = ({user}) => {
     const handleClose = () => setOpen(false);
   return (
     <>
-    <div className="shadow-myshadow flex items-center gap-4 p-6 rounded-lg">
+    <div className="flex items-center gap-4 p-6 rounded-lg bg-white border">
       <img src={user?.photoURL} alt="" className="w-[50px] rounded-full" />
       <div className="flex-grow">
         <Input

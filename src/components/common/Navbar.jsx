@@ -23,8 +23,7 @@ const Navbar = () => {
  
   return (
     <div>
-      <div className="flex justify-between">
-        <h2>Byte Circel</h2>
+      <div className="flex justify-end">
         <button onClick={handleLogout}>logout</button>
       </div>
     </div>

@@ -8,30 +8,23 @@ import { formatPostingDate } from "../utils";
 
 const Home = () => {
   const user = useSelector((state) => state.user);
-  const [feed, setFeed] = useState([]);
   const { isLoading, isError, data } = useQuery("feed", fetchUserFeed, {
     retry: 3,
-    onSuccess: (data) => {
-      if (data.status === 200) {
-        setFeed(data?.data?.data);
-      }
-    },
     onError: (error) => {
       console.error("Error fetching profile:", error.message);
     },
   });
 
-  console.log(feed);
   return (
-    <div className="m-2">
+    <div className="">
       <CreateAPost user={user} />
       {isLoading ? (
         "Loading..."
       ) : (
         <div className="my-6">
           <h2 className="font-semibold text-xl mb-4">Feed</h2>
-          {feed.map((item) => (
-            <div className="shadow-myshadow p-4 rounded-lg flex gap-4 mb-4" key={item?._id}>
+          {data.map((item) => (
+            <div className="p-4 rounded-lg flex gap-4 mb-4 bg-white border" key={item?._id}>
               <div>
                 <img
                   src={item?.user?.photoURL}

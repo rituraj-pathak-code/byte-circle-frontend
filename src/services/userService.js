@@ -1,10 +1,11 @@
 import axios from "axios";
 import config from "../config";
 
+const headers = {
+  "Content-Type": "application/json",
+};
+
 export const fetchUser = async () => {
-  const headers = {
-    "Content-Type": "application/json",
-  };
   try {
     const res = await axios.get(
       config.BASE_URL + config.FETCH_USER,
@@ -24,9 +25,6 @@ export const fetchUser = async () => {
   }
 };
 export const fetchUserFeed = async () => {
-  const headers = {
-    "Content-Type": "application/json",
-  };
   try {
     const res = await axios.get(
       config.BASE_URL + config.FETCH_FEED,
@@ -34,7 +32,7 @@ export const fetchUserFeed = async () => {
       headers
     );
     if (res.status == 200) {
-      return res;
+      return res.data.data;
     } else {
       return false;
     }
@@ -43,3 +41,29 @@ export const fetchUserFeed = async () => {
     return false;
   }
 };
+
+export const fetchSuggestions = async () => {
+  try{
+    const res = await axios.get(config.BASE_URL+config.FETCH_SUGGESTED_FRIENDS,{withCredentials:true},headers);
+    console.log(res)
+    if(res.status==200){
+      return res.data.data;
+    }
+  }catch(err){
+    console.log(err);
+    throw err;
+  }
+}
+
+export const fetchUserFriends= async () => {
+  try{
+    const res = await axios.get(config.BASE_URL+config.FETCH_FRIENDS,{withCredentials:true},headers);
+    console.log(res)
+    if(res.status==200){
+      return res.data.data;
+    }
+  }catch(err){
+    console.log(err);
+    throw err;
+  }
+}

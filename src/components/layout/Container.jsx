@@ -31,12 +31,12 @@ const Container = () => {
   }
   return (
     <div className="flex overflow-y-hidden">
-      <div className="w-[18%] bg-gray-200 p-4 border-r border-gray-300 shadow">
+      <div className="w-[16%] py-4 px-2 border-r border-gray-300 shadow">
         <Sidebar />
       </div>
 
       <div className="flex-1">
-        <div className="bg-gray-200 p-4 border-b border-gray-300 shadow-sm">
+        <div className="p-4 border-b border-gray-300 shadow-sm">
           <Navbar />
         </div>
         <div className="flex-1 flex p-8 bg-gray-50">
