@@ -12,7 +12,9 @@ const config = {
   FETCH_REQUESTS_RECEIVED: "/api/user/requests/received",
   ACCEPT_FRIEND_REQUEST: "/api/subscribe/accept",
   CANCEL_FRIENDSHIP: "/api/subscribe/cancel",
-  FETCH_FRIENDS: "/api/user/subscribers"
+  FETCH_FRIENDS: "/api/user/subscribers",
+  LIKE_POST: "/api/post/like"
+
 };
 
 export default config
