@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FcComments, FcLike, FcLikePlaceholder, FcShare } from "react-icons/fc";
 import Spinner from "./ui/Spinner";
 import { useMutation, useQueryClient } from "react-query";
 import { likePost } from "../services/postService";
 
 const PostActions = ({item,likesData, isLoading}) => {
+    const [isLiked,setIsLiked] = useState(likesData?.liked)
     const queryClient = useQueryClient();
     const mutation = useMutation((postId) => likePost(postId), {
         onSuccess: () => {
@@ -16,8 +17,15 @@ const PostActions = ({item,likesData, isLoading}) => {
         },
       });
       const likeHandler = (postId) => {
+        setIsLiked(prev=>!prev)
         mutation.mutate(postId);
       };
+
+      useEffect(()=> {
+        if(likesData){
+          setIsLiked(likesData.liked)
+        }
+      },[likesData])
   return (
     <div className="flex items-center justify-between border-t px-4 h-[45px]">
       <button
@@ -25,16 +33,14 @@ const PostActions = ({item,likesData, isLoading}) => {
         onClick={() => likeHandler(item._id)}
       >
         <div>
-          {isLoading || mutation.isLoading ? (
-            <Spinner width={"20px"} />
-          ) : likesData?.liked ? (
+          {isLiked? (
             <FcLike size={25} />
           ) : (
             <FcLikePlaceholder size={25} />
           )}
         </div>
         <p className="text-gray-600 text-sm">
-          {likesData?.liked ? "Liked" : "Like"}
+          {isLiked? "Liked" : "Like"}
         </p>
       </button>
       <button className="flex items-center gap-2 hover:bg-gray-100 py-2 px-4">
